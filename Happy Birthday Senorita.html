@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date of Birth Calculator</title>
+</head>
+<body>
+    <h1>Date of Birth Calculator</h1>
+    <label for="birthdate">Enter your birthdate:</label>
+    <input type="date" id="birthdate" value="1998-08-07">
+    <button onclick="calculateDateOfBirth()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateDateOfBirth() {
+            const birthdateInput = document.getElementById('birthdate');
+            const birthdate = new Date(birthdateInput.value);
+            const now = new Date();
+
+            const seconds = Math.floor((now - birthdate) / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const days = Math.floor(seconds / (60 * 60 * 24));
+            const years = Math.floor(days / 365);
+            const decades = Math.floor(years / 10);
+
+            const result = `
+                <p>Date of Birth: ${birthdate.toDateString()}</p>
+                <p>Seconds: ${seconds.toLocaleString()}</p>
+                <p>Minutes: ${minutes.toLocaleString()}</p>
+                <p>Days: ${days.toLocaleString()}</p>
+                <p>Years: ${years.toLocaleString()}</p>
+                <p>Decades: ${decades.toLocaleString()}</p>
+            `;
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
+
