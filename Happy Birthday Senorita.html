@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Date of Birth Calculator</title>
+    <title >Happy Birthday Senorita</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        #result {
+            text-align: left;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #ff6ac1;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Date of Birth Calculator</h1>
-    <label for="birthdate">Enter your birthdate:</label>
-    <input type="date" id="birthdate" value="1998-08-07">
-    <button onclick="calculateDateOfBirth()">Calculate</button>
-    <div id="result"></div>
+    <div id="container">
+        <img src="Senorita.png" alt="Senorita">
+        <h1>Happy Birthday Senorita</h1>
+        <div id="result"></div>
+    </div>
 
     <script>
+        function formatFullDate(date) {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+            const day = daysOfWeek[date.getDay()];
+            const month = monthsOfYear[date.getMonth()];
+            const dayOfMonth = date.getDate();
+            const year = date.getFullYear();
+
+            let daySuffix;
+            if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
+                daySuffix = 'st';
+            } else if (dayOfMonth === 2 || dayOfMonth === 22) {
+                daySuffix = 'nd';
+            } else if (dayOfMonth === 3 || dayOfMonth === 23) {
+                daySuffix = 'rd';
+            } else {
+                daySuffix = 'th';
+            }
+
+            return `${day} ${month} ${dayOfMonth}${daySuffix}, ${year}`;
+        }
+
         function calculateDateOfBirth() {
-            const birthdateInput = document.getElementById('birthdate');
-            const birthdate = new Date(birthdateInput.value);
+            const birthdate = new Date("1998-08-07");
             const now = new Date();
 
             const seconds = Math.floor((now - birthdate) / 1000);
@@ -23,17 +74,20 @@
             const decades = Math.floor(years / 10);
 
             const result = `
-                <p>Date of Birth: ${birthdate.toDateString()}</p>
-                <p>Seconds: ${seconds.toLocaleString()}</p>
-                <p>Minutes: ${minutes.toLocaleString()}</p>
-                <p>Days: ${days.toLocaleString()}</p>
-                <p>Years: ${years.toLocaleString()}</p>
                 <p>Decades: ${decades.toLocaleString()}</p>
+                <p>Years: ${years.toLocaleString()}</p>
+                <p>Days: ${days.toLocaleString()}</p>
+                <p>Minutes: ${minutes.toLocaleString()}</p>
+                <p>Seconds: ${seconds.toLocaleString()}</p>
+                <p>Date of Birth: ${formatFullDate(birthdate)}</p>
             `;
 
             document.getElementById('result').innerHTML = result;
         }
+
+        setInterval(calculateDateOfBirth, 1000); // Update every second
+
+        calculateDateOfBirth(); // Initial calculation on page load
     </script>
 </body>
 </html>
-
