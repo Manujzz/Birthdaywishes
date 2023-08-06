@@ -2,42 +2,45 @@
 <html>
 
 <head>
-    <title>Happy Birthday Senorita</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
-        }
-     
-        #container {
-            
-            text-align: center;
-            border: 2px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-        }
+  <title>Senorita</title>
+  <link rel="stylesheet" href="/My pic.jpg">
 
-        #result {
-            text-align: left;
-            margin-top: 20px;
-        }
+  <style>
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    
+    }
 
-        h1 {
-            color: #ff6ac1;
-        }
+    #container {
 
-        img {
-            width: 150px;
-            margin-bottom: 20px;
-        }
+      text-align: center;
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
 
-        #image-container {
+    #result {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: #ff6ac1;
+    }
+
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    #image-container {
       position: absolute;
       bottom: 0;
       left: 70%;
@@ -49,6 +52,7 @@
       0% {
         transform: translate(-50%, 0%);
       }
+
       100% {
         transform: translate(-50%, -100%);
       }
@@ -63,68 +67,212 @@
     #image-container.finished img {
       opacity: 0;
     }
+    .image-containers {
+ 
+      justify-content: center;
+      padding: 250px;
 
-    </style>
 
-    <script src="./confetti.js"></script>
-    <script>
-        window.onload = startConfetti();
-    </script>
+    }
+
+    .image {
+  
+      flex-direction: column;
+      justify-content: center; 
+      border: 1.5px solid #ddd;
+      border-radius: 5px;
+      padding: 100px;
+    
+      
+    }
+    image > img{
+      height: 5rem;
+      width: 5rem;
+      
+    }
+    .p{
+      font-size: 30px;
+    }
+    .b{
+      font-size: 50px;
+    }
+    .image:hver { /*if required add hover*/ 
+    transform: scale(1.05);
+    
+
+    @font-face {
+      font-family: 'Bellina Florence';
+      src: url(bellinaflorencedemo-demo-webfont.woff) format('woff'),
+           url(bellinaflorencedemo-demo-webfont.woff2) format('woff2');
+      /* You can also include other font formats for better cross-browser support */
+    }
+
+  </style>
+
+  <script src="./confetti.js"></script>
+  <script>
+    window.onload = startConfetti();
+  </script>
+  <script>
+    // Set a flag to keep track of whether the confetti animation is running
+    let confettiRunning = false;
+
+    // Function to disable scroll event when confetti animation is running
+    function disableScroll(event) {
+      if (confettiRunning) {
+        event.preventDefault();
+      }
+    }
+
+    // Function to enable scroll event when confetti animation stops
+    function enableScroll() {
+      window.removeEventListener("wheel", disableScroll, { passive: false });
+    }
+
+    // Function to start the confetti animation
+    function startConfettiInner() {
+      // ... your existing confetti animation code ...
+      confettiRunning = true;
+      // Add the scroll event listener when the animation starts
+      window.addEventListener("wheel", disableScroll, { passive: false });
+    }
+
+    // Function to stop the confetti animation
+    function stopConfettiInner() {
+      // ... your existing confetti stop code ...
+      confettiRunning = false;
+      // Remove the scroll event listener when the animation stops
+      enableScroll();
+    }
+
+    // Function to toggle the confetti animation
+    function toggleConfettiInner() {
+      if (confettiRunning) {
+        stopConfettiInner();
+      } else {
+        startConfettiInner();
+      }
+    }
+  </script>
+
 </head>
 
 <body>
-    <div id="container">
-        <img src="Senorita.jpg" alt="Senorita">
-        <h1>Happy Birthday Senorita</h1>
-        <div id="result"></div>
+  
+  <div class="body">
 
-       
-    </div>
+    <div id="container">
+      <img src="Senorita.jpg" alt="Senorita">
+      <h1 style=" font-family: 'Bellina Florence', cursive">Happy Birthday Senorita </h1>
+      <div id="result" style="font-size: large;"></div>
+      <button onclick="playAudio()">Play</button>
+ </div>
+
 
     
-      <script>
-        // Add JavaScript to add a class to the image container when the animation is finished
-        const imageContainer = document.getElementById('image-container');
-        imageContainer.addEventListener('animationend', () => {
-          imageContainer.classList.add('finished');
-        });
-      </script>
+      
+  
 
-    <script>
-        function formatFullDate(date) {
-            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  </div>
+  <div class="image-containers">
+    <div class="image">
+      <img src="rita appa amma.jpg" alt="Image1" style="width: 960px;height: 1280px;">
+      <div class="title" style="font-size: 35px;"> <b> Guiding Lights: The Love and Wisdom of Mom and Dad.</b> </div>
+      <p class="p">Parents are the pillars of our lives the constant presence that provides stability, love and guidance as we navigate the world. From the moment we are born <br>
+        they embark on an incredible journey of nurturing, teaching and supporting us shaping our character and molding us into the individuals we become.
+      <br>
+      <br>
+      "Guiding Lights" is a heartwarming tribute to the extraordinary bond between a mom and dad and their children. It celebrates the unique roles they play in our lives, <br>
+      with Mom's unwavering compassion and boundless affection and Dad's strength, wisdom and encouragement.
+    <br>
+    <br>
+    Through the ups and downs of life, our parents are there as a steady anchor, offering comfort during difficult times and rejoicing with us during moments of triumph. <br>
+    They provide us with the tools we need to face challenges, teaching us valuable life lessons that extend far beyond the boundaries of childhood.  
+  <br>
+  <br>
+  In "Guiding Lights," we explore the myriad of ways parents selflessly devote themselves to the well-being of their children. It showcases the joys, sacrifices and joys that come with parenting, <br>
+  revealing the deep love and emotional connections that create lifelong memories. 
+  </p>
+</div>
+<br>
+<br>
 
-            const day = daysOfWeek[date.getDay()];
-            const month = monthsOfYear[date.getMonth()];
-            const dayOfMonth = date.getDate();
-            const year = date.getFullYear();
+    <div class="image">
+      <img src="/hero.jpg" alt="Image1" style="width: 877px;height: 576px;">
+      <div class="title" style="font-size: 35px;"> <b>Brother Bond: A Lifelong Friendship and Support.</b></div>
+      <p class="p">A brother is more than just a sibling; he is a friend, confidante, and companion for life. This special bond extends beyond blood,for<br>
+         he is a pillar of support and a source of comfort in both joyous moments and challenging times.
+        <br>
+        <br>
+        In the journey of life, a brother stands by your side, offering a unique blend of camaraderie and protection.<br>
+         From childhood escapades to shared laughter and tears, the memories created with a brother are etched into the core of your being.
+        </p>
 
-            let daySuffix;
-            if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
-                daySuffix = 'st';
-            } else if (dayOfMonth === 2 || dayOfMonth === 22) {
-                daySuffix = 'nd';
-            } else if (dayOfMonth === 3 || dayOfMonth === 23) {
-                daySuffix = 'rd';
-            } else {
-                daySuffix = 'th';
-            }
+    </div>
+<br>
+<br>    
+    <div class="image">
+      <img src="Akka Jiju.jpg" alt="Image1" style="width: 681px;height: 1024px;">
+      <div class="title" style="font-size: 35px;"><b>Together Forever: A Sister's Love and Her Beloved Husband</b></div>
+      <p class="p">A sister is a lifelong companion a confidante and a source of unwavering support. <br>She shares secrets, dreams and laughter and her love knows no bounds. <br>Through every chapter of life she stands by your side cheering you on and celebrating your victories as if they were her own.<br>
+        Her husband, now a part of the family complements her in the most beautiful ways. <br>He brings joy and happiness into her life and becomes a cherished member of the family circle. <br>Together they create a home filled with warmth, love, and shared dreams.</p>
+    </div>
+    <br>
+    <br>
+  
+  <div class="image">
+    <img src="/grp 1.jpg.crdownload" alt="image4" style="width: 50%;height: 50%;">
+    <div class="title" style="font-size: 35px;"><b>Eternal Companions: The Unbreakable Friendship.</b></div>
+    <p class="p">"Eternal Companions" is a testament to the beauty of friendship the kind that becomes a lifelong treasure.<br>
+      It celebrates the joy of finding a true friend irrespective of gender and the profound impact such a friendship can have on shaping our lives. <br>
+      This tale serves as a reminder that genuine friendships are an essential source of happiness, support and growth on our journey through life.
+      </p>
+  </div>
+      <br>
+   <br>
+  <div class="image">
+    <img src="/Senorita123.png" alt="image4" style="width: 640px;height: 640px;">
+    <div class="title1" style=" font-family: 'Bellina Florence', cursive;font-size: 50px"><b>"Senorita"</b></div>
+</div>
+</div>
 
-            return `${day} ${month} ${dayOfMonth}${daySuffix}, ${year}`;
-        }
 
-        function calculateDateOfBirth() {
-            const birthdate = new Date("1998-08-07");
-            const now = new Date();
 
-            const seconds = Math.floor((now - birthdate) / 1000);
-            const minutes = Math.floor(seconds / 60);
-            const days = Math.floor(seconds / (60 * 60 * 24));
-            const years = Math.floor(days / 365);
-            const decades = Math.floor(years / 10);
+  <script>
+    function formatFullDate(date) {
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-            const result = `
+      const day = daysOfWeek[date.getDay()];
+      const month = monthsOfYear[date.getMonth()];
+      const dayOfMonth = date.getDate();
+      const year = date.getFullYear();
+
+      let daySuffix;
+      if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
+        daySuffix = 'st';
+      } else if (dayOfMonth === 2 || dayOfMonth === 22) {
+        daySuffix = 'nd';
+      } else if (dayOfMonth === 3 || dayOfMonth === 23) {
+        daySuffix = 'rd';
+      } else {
+        daySuffix = 'th';
+      }
+
+      return `${day} ${month} ${dayOfMonth}${daySuffix}, ${year}`;
+    }
+
+    function calculateDateOfBirth() {
+      const birthdate = new Date("1998-08-07");
+      const now = new Date();
+
+      const seconds = Math.floor((now - birthdate) / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const days = Math.floor(seconds / (60 * 60 * 24));
+      const years = Math.floor(days / 365);
+      const decades = Math.floor(years / 10);
+
+      const result = `
                 <p> Decades: ${decades.toLocaleString()} </p>
                 <p>Years: ${years.toLocaleString()}</p>
                 <p>Days: ${days.toLocaleString()}</p>
@@ -133,154 +281,176 @@
                 <pDate of Birth: ${formatFullDate(birthdate)}</p---- if required u can add
             `;
 
-            document.getElementById('result').innerHTML = result;
+      document.getElementById('result').innerHTML = result;
+    }
+
+    setInterval(calculateDateOfBirth, 1000); // Update every second
+
+    calculateDateOfBirth(); // Initial calculation on page load
+  </script>
+
+  <script>
+    var maxParticleCount = 150; // set max confetti count
+    var particleSpeed = 2; // set the particle animation speed
+    var startConfetti; // call to start confetti animation
+    var stopConfetti; // call to stop adding confetti
+    var toggleConfetti; // call to start or stop the confetti animation depending on whether it's already running
+    var removeConfetti; // call to stop the confetti animation and remove all confetti immediately
+
+    (function () {
+      startConfetti = startConfettiInner;
+      stopConfetti = stopConfettiInner;
+      toggleConfetti = toggleConfettiInner;
+      removeConfetti = removeConfettiInner;
+      var colors = ["DodgerBlue", "OliveDrab", "Gold", "Pink", "SlateBlue", "LightBlue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"];
+      var streamingConfetti = false;
+      var animationTimer = null;
+      var particles = [];
+      var waveAngle = 0;
+
+      function resetParticle(particle, width, height) {
+        particle.color = colors[(Math.random() * colors.length) | 0];
+        particle.x = Math.random() * width;
+        particle.y = Math.random() * height - height;
+        particle.diameter = Math.random() * 10 + 5;
+        particle.tilt = Math.random() * 10 - 10;
+        particle.tiltAngleIncrement = Math.random() * 0.07 + 0.05;
+        particle.tiltAngle = 0;
+        return particle;
+      }
+
+      function startConfettiInner() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        window.requestAnimFrame = (function () {
+          return (
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+              return window.setTimeout(callback, 16.6666667);
+            }
+          );
+        })();
+        var canvas = document.getElementById("confetti-canvas");
+        if (canvas === null) {
+          canvas = document.createElement("canvas");
+          canvas.setAttribute("id", "confetti-canvas");
+          canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:fixed;top:0;left:0");
+          document.body.appendChild(canvas);
+          canvas.width = width;
+          canvas.height = height;
+          window.addEventListener(
+            "resize",
+            function () {
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight;
+            },
+            true
+          );
         }
+        var context = canvas.getContext("2d");
+        while (particles.length < maxParticleCount) particles.push(resetParticle({}, width, height));
+        streamingConfetti = true;
+        if (animationTimer === null) {
+          (function runAnimation() {
+            context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            if (particles.length === 0) animationTimer = null;
+            else {
+              updateParticles();
+              drawParticles(context);
+              animationTimer = requestAnimFrame(runAnimation);
+            }
+          })();
+          // Stop confetti after 10 seconds
+          setTimeout(function () {
+            stopConfetti();
+          }, 10000);
+        }
+      }
 
-        setInterval(calculateDateOfBirth, 1000); // Update every second
+      function stopConfettiInner() {
+        streamingConfetti = false;
+      }
 
-        calculateDateOfBirth(); // Initial calculation on page load
-    </script>
+      function removeConfettiInner() {
+        stopConfetti();
+        particles = [];
+      }
+
+      function toggleConfettiInner() {
+        if (streamingConfetti) stopConfettiInner();
+        else startConfettiInner();
+      }
+
+      function drawParticles(context) {
+        var particle;
+        var x;
+        for (var i = 0; i < particles.length; i++) {
+          particle = particles[i];
+          context.beginPath();
+          context.lineWidth = particle.diameter;
+          context.strokeStyle = particle.color;
+          x = particle.x + particle.tilt;
+          context.moveTo(x + particle.diameter / 2, particle.y);
+          context.lineTo(x, particle.y + particle.tilt + particle.diameter / 2);
+          context.stroke();
+        }
+      }
+
+      function updateParticles() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var particle;
+        waveAngle += 0.01;
+        for (var i = 0; i < particles.length; i++) {
+          particle = particles[i];
+          if (!streamingConfetti && particle.y < -15) particle.y = height + 100;
+          else {
+            particle.tiltAngle += particle.tiltAngleIncrement;
+            particle.x += Math.sin(waveAngle);
+            particle.y += (Math.cos(waveAngle) + particle.diameter + particleSpeed) * 0.5;
+            particle.tilt = Math.sin(particle.tiltAngle) * 15;
+          }
+          if (particle.x > width + 20 || particle.x < -20 || particle.y > height) {
+            if (streamingConfetti && particles.length <= maxParticleCount) resetParticle(particle, width, height);
+            else {
+              particles.splice(i, 1);
+              i--;
+            }
+          }
+        }
+      }
+    })();
+
+    // Start the confetti animation on page load
+    window.addEventListener("load", function () {
+      startConfetti();
+    });
+  </script>
+
+<audio id="myAudio" controls>
+  <source src="/Happy_Birthday_To_You_Ji.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
 <script>
-  var maxParticleCount = 150; // set max confetti count
-  var particleSpeed = 2; // set the particle animation speed
-  var startConfetti; // call to start confetti animation
-  var stopConfetti; // call to stop adding confetti
-  var toggleConfetti; // call to start or stop the confetti animation depending on whether it's already running
-  var removeConfetti; // call to stop the confetti animation and remove all confetti immediately
+  // Get a reference to the audio element
+  const audio = document.getElementById('myAudio');
 
-  (function() {
-    startConfetti = startConfettiInner;
-    stopConfetti = stopConfettiInner;
-    toggleConfetti = toggleConfettiInner;
-    removeConfetti = removeConfettiInner;
-    var colors = ["DodgerBlue", "OliveDrab", "Gold", "Pink", "SlateBlue", "LightBlue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"];
-    var streamingConfetti = false;
-    var animationTimer = null;
-    var particles = [];
-    var waveAngle = 0;
+  // Function to play the audio for 56 seconds and then stop
+  function playAudio() {
+      audio.play();
 
-    function resetParticle(particle, width, height) {
-      particle.color = colors[(Math.random() * colors.length) | 0];
-      particle.x = Math.random() * width;
-      particle.y = Math.random() * height - height;
-      particle.diameter = Math.random() * 10 + 5;
-      particle.tilt = Math.random() * 10 - 10;
-      particle.tiltAngleIncrement = Math.random() * 0.07 + 0.05;
-      particle.tiltAngle = 0;
-      return particle;
-    }
-
-    function startConfettiInner() {
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      window.requestAnimFrame = (function() {
-        return (
-          window.requestAnimationFrame ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          window.oRequestAnimationFrame ||
-          window.msRequestAnimationFrame ||
-          function(callback) {
-            return window.setTimeout(callback, 16.6666667);
-          }
-        );
-      })();
-      var canvas = document.getElementById("confetti-canvas");
-      if (canvas === null) {
-        canvas = document.createElement("canvas");
-        canvas.setAttribute("id", "confetti-canvas");
-        canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:fixed;top:0;left:0");
-        document.body.appendChild(canvas);
-        canvas.width = width;
-        canvas.height = height;
-        window.addEventListener(
-          "resize",
-          function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-          },
-          true
-        );
-      }
-      var context = canvas.getContext("2d");
-      while (particles.length < maxParticleCount) particles.push(resetParticle({}, width, height));
-      streamingConfetti = true;
-      if (animationTimer === null) {
-        (function runAnimation() {
-          context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-          if (particles.length === 0) animationTimer = null;
-          else {
-            updateParticles();
-            drawParticles(context);
-            animationTimer = requestAnimFrame(runAnimation);
-          }
-        })();
-        // Stop confetti after 10 seconds
-        setTimeout(function() {
-          stopConfetti();
-        }, 10000);
-      }
-    }
-
-    function stopConfettiInner() {
-      streamingConfetti = false;
-    }
-
-    function removeConfettiInner() {
-      stopConfetti();
-      particles = [];
-    }
-
-    function toggleConfettiInner() {
-      if (streamingConfetti) stopConfettiInner();
-      else startConfettiInner();
-    }
-
-    function drawParticles(context) {
-      var particle;
-      var x;
-      for (var i = 0; i < particles.length; i++) {
-        particle = particles[i];
-        context.beginPath();
-        context.lineWidth = particle.diameter;
-        context.strokeStyle = particle.color;
-        x = particle.x + particle.tilt;
-        context.moveTo(x + particle.diameter / 2, particle.y);
-        context.lineTo(x, particle.y + particle.tilt + particle.diameter / 2);
-        context.stroke();
-      }
-    }
-
-    function updateParticles() {
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      var particle;
-      waveAngle += 0.01;
-      for (var i = 0; i < particles.length; i++) {
-        particle = particles[i];
-        if (!streamingConfetti && particle.y < -15) particle.y = height + 100;
-        else {
-          particle.tiltAngle += particle.tiltAngleIncrement;
-          particle.x += Math.sin(waveAngle);
-          particle.y += (Math.cos(waveAngle) + particle.diameter + particleSpeed) * 0.5;
-          particle.tilt = Math.sin(particle.tiltAngle) * 15;
-        }
-        if (particle.x > width + 20 || particle.x < -20 || particle.y > height) {
-          if (streamingConfetti && particles.length <= maxParticleCount) resetParticle(particle, width, height);
-          else {
-            particles.splice(i, 1);
-            i--;
-          }
-        }
-      }
-    }
-  })();
-
-  // Start the confetti animation on page load
-  window.addEventListener("load", function() {
-    startConfetti();
-  });
+      // Stop the audio after 56 seconds
+      setTimeout(function() {
+          audio.pause();
+          audio.currentTime = 0; // Reset the audio to the beginning
+      }, 56000); // 56 seconds in milliseconds
+  }
 </script>
 
 </body>
