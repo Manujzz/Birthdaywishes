@@ -164,12 +164,13 @@
       <img src="Senorita.jpg" alt="Senorita">
       <h1 style=" font-family: 'Bellina Florence', cursive">Happy Birthday Senorita </h1>
       <div id="result" style="font-size: large;"></div>
+      <button id="playButton">Play</button>
 
     </div>
   </div>
   <div class="image-containers">
     <div class="image">
-      <img src="rita appa amma.jpg" alt="Image1" style="width: 860px;height: 1080px;">
+      <img src="rita appa amma.jpg" alt="Image1" style="width: 960px;height: 1280px;">
       <div class="title" style="font-size: 35px;"> <b> Guiding Lights: The Love and Wisdom of Mom and Dad.</b> </div>
       <p class="p">Parents are the pillars of our lives the constant presence that provides stability, love and guidance as we navigate the world. From the moment we are born <br>
         they embark on an incredible journey of nurturing, teaching and supporting us shaping our character and molding us into the individuals we become.
@@ -224,7 +225,7 @@
       <br>
    <br>
   <div class="image">
-    <img src="/Senorita.png" alt="image4" style="width: 640px;height: 640px;">
+    <img src="Senorita123.png" alt="image4" style="width: 640px;height: 640px;">
    
 </div>
 </div>
@@ -425,7 +426,7 @@
   </script>
 
 <audio id="myAudio" controls>
-  <source src="/Happy_Birthday_To_You_Ji.mp3" type="audio/mpeg">
+  <source src="Happy_Birthday_To_You_Ji.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
@@ -433,6 +434,9 @@
 <script>
   // Get a reference to the audio element
   const audio = document.getElementById('myAudio');
+
+  // Get a reference to the play button
+  const playButton = document.getElementById('playButton');
 
   // Function to play the audio for 56 seconds and then stop
   function playAudio() {
@@ -444,7 +448,10 @@
           audio.currentTime = 0; // Reset the audio to the beginning
       }, 56000); // 56 seconds in milliseconds
   }
-</script>
+
+  // Add click event listener to the play button
+  playButton.addEventListener('click', playAudio);
+    </script>
 
 </body>
 
